@@ -28,6 +28,16 @@ jobs:
           channel: 'stable'
           cache: true
 
+      - name: Recreate Android Project Harness
+        run: |
+          # Recreate standard Android platform files while preserving custom code & manifest
+          cp android/app/src/main/AndroidManifest.xml /tmp/AndroidManifest.xml.bak
+          flutter create --platforms=android --org com.security .
+          cp /tmp/AndroidManifest.xml.bak android/app/src/main/AndroidManifest.xml
+          # Ensure minSdk is 21 for camera & sensors
+          sed -i 's/minSdkVersion = flutter.minSdkVersion/minSdkVersion = 21/g' android/app/build.gradle 2>/dev/null || true
+          sed -i 's/minSdk = flutter.minSdk/minSdk = 21/g' android/app/build.gradle 2>/dev/null || true
+
       - name: Install Dependencies
         run: flutter pub get
 

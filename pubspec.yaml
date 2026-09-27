@@ -1,0 +1,37 @@
+name: spy_camera_detector
+description: "A production-grade Flutter application for detecting hidden spy cameras using EMF/Magnetometer sensors, Infrared Camera vision filter, and LAN IP network scanner."
+publish_to: "none"
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+  flutter: ">=3.10.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # State Management
+  provider: ^6.1.2
+
+  # Core Hardware Sensors & Device Features
+  sensors_plus: ^5.0.1
+  camera: ^0.10.6
+  vibration: ^2.0.0
+  audioplayers: ^6.0.0
+  permission_handler: ^11.3.1
+
+  # Network & Wi-Fi Scanning
+  network_info_plus: ^5.0.3
+
+  # UI / UX Utilities & Icons
+  google_fonts: ^6.2.1
+  lucide_icons: ^0.257.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
